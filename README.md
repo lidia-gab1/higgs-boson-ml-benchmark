@@ -59,6 +59,38 @@ A critical aspect of applying AI to physics is ensuring the model relies on phys
   <img src="shap_summary.png" width="80%" />
 </div>
 
+## 📋 Dataset Features Description
+
+The dataset consists of **28 kinematic features** derived from particle collision events. These features are divided into two categories:
+
+1.  **Low-Level Features (Index 1-21):** Raw measurements from the particle detector (momenta, angles, and b-tagging scores).
+2.  **High-Level Features (Index 22-28):** Variables derived by physicists using theoretical principles to specifically target the Higgs Boson decay topology ($H \to \tau\tau$ and $H \to b\bar{b}$).
+
+| Index | Feature Name | Type | Physical Meaning |
+| :---: | :--- | :--- | :--- |
+| **1** | `lepton pT` | Low-Level | Transverse momentum of the lepton produced in the decay. |
+| **2** | `lepton eta` | Low-Level | Pseudorapidity ($\eta$) of the lepton (angle relative to the beam axis). |
+| **3** | `lepton phi` | Low-Level | Azimuthal angle ($\phi$) of the lepton. |
+| **4** | `missing energy magnitude` | Low-Level | Energy imbalance in the transverse plane (indicates undetected particles like neutrinos). |
+| **5** | `missing energy phi` | Low-Level | Azimuthal angle of the missing transverse energy. |
+| **6-8** | `jet 1 (pt, eta, phi)` | Low-Level | Kinematics of the leading jet (stream of hadrons). |
+| **9** | `jet 1 b-tag` | Low-Level | Probability score that jet 1 originated from a bottom quark ($b$). |
+| **10-12**| `jet 2 (pt, eta, phi)` | Low-Level | Kinematics of the second jet. |
+| **13** | `jet 2 b-tag` | Low-Level | b-tagging score for jet 2. |
+| **14-16**| `jet 3 (pt, eta, phi)` | Low-Level | Kinematics of the third jet. |
+| **17** | `jet 3 b-tag` | Low-Level | b-tagging score for jet 3. |
+| **18-20**| `jet 4 (pt, eta, phi)` | Low-Level | Kinematics of the fourth jet. |
+| **21** | `jet 4 b-tag` | Low-Level | b-tagging score for jet 4. |
+| **22** | `m_jj` | **High-Level** | Invariant mass of the two jets with the highest b-tag scores. |
+| **23** | `m_jjj` | **High-Level** | Invariant mass of the three jets with the highest b-tag scores. |
+| **24** | `m_lv` | **High-Level** | Invariant mass of the lepton and the missing energy (neutrino). |
+| **25** | `m_jlv` | **High-Level** | Invariant mass of the leading jet, lepton, and neutrino. |
+| **26** | `m_bb` | **High-Level** | Invariant mass of the bottom quark pair. **(Critical for Higgs identification)** |
+| **27** | `m_wbb` | **High-Level** | Invariant mass of the $W$ boson and two bottom quarks. |
+| **28** | `m_wwbb` | **High-Level** | Invariant mass of the $WWb\bar{b}$ system. |
+
+> **Note:** The dominance of high-level features (especially `m_bb` at index 26) in the SHAP analysis confirms that the Deep Neural Network successfully learned the underlying physics of the Standard Model to distinguish signal from background.
+
 ### Analysis
 The analysis confirms the model's physical consistency:
 1.  **Invariant Mass Dominance:** The features $m_{bb}$ (mass of bottom quark pair) and $m_{wwbb}$ emerged as the top predictors. This aligns with theoretical expectations, as invariant mass is the primary kinematic handle for identifying resonance decays ($H \to b\bar{b}$).
