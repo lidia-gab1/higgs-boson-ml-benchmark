@@ -46,8 +46,8 @@ The data is sourced from the **UCI Machine Learning Repository**:
 | **Deep Neural Network (Ours)** | **0.8505** |
 
 <p float="left">
-  <img src="images/roc_curve.png" width="45%" />
-  <img src="images/score_dist.png" width="45%" />
+  <img src="roc_curve.png" width="45%" />
+  <img src="score_dist.png" width="45%" />
 </p>
 
 The DNN demonstrates superior signal efficiency for a given background rejection rate compared to the BDT baseline.
@@ -56,7 +56,7 @@ The DNN demonstrates superior signal efficiency for a given background rejection
 A critical aspect of applying AI to physics is ensuring the model relies on physical phenomena rather than artifacts. We employed **SHAP (SHapley Additive exPlanations)** to rank feature importance.
 
 <div align="center">
-  <img src="images/shap_summary.png" width="80%" />
+  <img src="shap_summary.png" width="80%" />
 </div>
 
 ### Analysis
