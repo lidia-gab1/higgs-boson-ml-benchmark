@@ -13,6 +13,10 @@ Inspired by the seminal paper **"Searching for Exotic Particles in High-Energy P
 
 Beyond raw performance metrics, this project focuses on **Explainable AI (XAI)**. Using SHAP values, we open the "black box" to verify if the model's decisions align with the Standard Model of particle physics.
 
+> 🎓 *The inspiration for this reproduction work stemmed from a Master's degree course assignment.*
+
+> **Student:** Lídia Gabrielly Dutra de Meneses Santos 🇧🇷
+
 ## 📂 Dataset
 The data is sourced from the **UCI Machine Learning Repository**:
 * **Dataset:** HIGGS
@@ -63,7 +67,7 @@ The analysis confirms the model's physical consistency:
 ## 🚀 How to Run
 1.  Clone this repository:
     ```bash
-    git clone [https://github.com/SEU_USUARIO/higgs-boson-ml.git](https://github.com/SEU_USUARIO/higgs-boson-ml.git)
+    git clone https://github.com/lidia-gab1/higgs-boson-ml-benchmark.git
     ```
 2.  Install dependencies:
     ```bash
